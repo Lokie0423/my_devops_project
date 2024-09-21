@@ -1,0 +1,64 @@
+ws{^k
+name: CI Pipeline
+
+# Trigger this workflow on every push and pull request to the main branch
+
+on:
+
+   push:
+
+     branches:
+
+        - main
+
+   pull_request:
+
+   branches:
+
+    - main
+
+
+
+
+ jobs: 
+
+   build:
+
+     run-on: ubuntu-latest
+
+
+
+         steps: 
+
+        # checkout the code from GitHub repository
+
+       - name : Checkout code
+
+         uses:  actions/checkout@v2
+
+
+      # Run basic commands
+
+      - name: Set up Node.js (or Python, Go, etc.)
+
+        uses:  actions/setup-node@v2
+
+        with: 
+  
+          node-versions: '14'
+
+      # Install Dependencies
+
+      - name: Install Dependencies
+
+        run: npm install
+
+      # Run tests
+
+       - name:  Run tests
+
+          run:   npm test
+
+:wq
+:q!
+
