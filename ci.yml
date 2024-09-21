@@ -45,11 +45,20 @@ on:
   
           node-versions: '14'
 
+
       # Install Dependencies
 
       - name: Install Dependencies
 
         run: npm install
+
+
+      # Lint the code
+
+       - name: Lint code
+
+         run:  npm test
+
 
       # Run tests
 
@@ -57,6 +66,12 @@ on:
 
           run:   npm test
 
-:wq
-:q!
 
+     # Build the project 
+
+     - name: Build project
+
+       run : npm run build
+
+:wq
+ 
