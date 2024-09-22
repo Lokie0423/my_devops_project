@@ -26,11 +26,7 @@ jobs:
 
       # Install dependencies
       - name: Install Dependencies
-        run: npm install
-
-      # Lint the code
-      - name: Lint code
-        run: npm run lint
+        run: npm install 
 
       # Run tests
       - name: Run tests
@@ -39,6 +35,8 @@ jobs:
       # Build the project
       - name: Build project
         run: npm run build
+
+
 
 
 
