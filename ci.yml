@@ -1,70 +1,42 @@
-
 name: CI Pipeline
 
 # Trigger this workflow on every push and pull request to the main branch
-
 on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-   push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-     branches:
+    steps:
+      # Checkout the code from GitHub repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-        - main
-
-   pull_request:
-
-   branches:
-
-    - main
-
-
-
-
- jobs: 
-
-   build:
-
-     runs-on: ubuntu-latest
-
-    steps: 
-
-        
-
-       - name : Checkout repository
-
-         uses:  actions/checkout@v2
-
-
-      # Example: Set up Node.js 
-
+      # Set up Node.js
       - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-        uses:  actions/setup-node@v2
-
-        with: 
-  
-          node-versions: '14'
-
-
-      # Install Dependencies
-
+      # Install dependencies
       - name: Install Dependencies
-
         run: npm install
 
-
+      # Lint the code
+      - name: Lint code
+        run: npm run lint  # Change this to `npm run lint` if you have a lint step
 
       # Run tests
+      - name: Run tests
+        run: npm test
 
-       - name:  Run tests
-
-          run:   npm test
-
-
-     # Build the project 
-
-     - name: Build project
-
-       run : npm run build
-
+      # Build the project
+      - name: Build project
+        run: npm run build
 
