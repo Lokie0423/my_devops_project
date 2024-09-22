@@ -1,0 +1,56 @@
+ name: CI Pipeline
+
+ on:
+
+  push:
+
+   branches:
+
+       -main
+
+  pull_request:
+
+   branches:
+
+     -main
+
+
+  jobs: 
+
+     build: 
+
+      runs-on: ubuntu-latest #Corrected from "run-on"
+
+      
+       steps:
+
+       # Checkout the code from GitHub repository
+
+       - name: Checkout respository
+   
+         uses: actions/checkout@v2
+
+      # Example: Set up Node.js 
+
+       - name: Set up Node.js
+
+         uses: actions/setup-node@v2
+
+         with: 
+
+           node-version: "14"
+
+      # Install dependencies
+
+       - name: Install depedencies
+
+         run:  npm install 
+
+      # Run tests
+
+       - name: Run tests
+    
+          run: npm test
+
+:wq
+

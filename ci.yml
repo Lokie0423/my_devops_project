@@ -1,4 +1,4 @@
-ws{^k
+
 name: CI Pipeline
 
 # Trigger this workflow on every push and pull request to the main branch
