@@ -30,7 +30,7 @@ jobs:
 
       # Lint the code
       - name: Lint code
-        run: npm run lint  
+        run: npm run lint
 
       # Run tests
       - name: Run tests
@@ -39,5 +39,6 @@ jobs:
       # Build the project
       - name: Build project
         run: npm run build
+
 
 
