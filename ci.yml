@@ -30,7 +30,7 @@ jobs:
 
       # Lint the code
       - name: Lint code
-        run: npm run lint  # Assuming you have linting set up
+        run: npm run lint  
 
       # Run tests
       - name: Run tests
