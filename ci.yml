@@ -30,7 +30,7 @@ jobs:
 
       # Lint the code
       - name: Lint code
-        run: npm run lint  # Change this to `npm run lint` if you have a lint step
+        run: npm run lint  # Assuming you have linting set up
 
       # Run tests
       - name: Run tests
@@ -39,4 +39,5 @@ jobs:
       # Build the project
       - name: Build project
         run: npm run build
+
 
