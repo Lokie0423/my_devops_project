@@ -1,0 +1,40 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checkout the code from GitHub repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Lint the code
+      - name: Lint code
+        run: npm run lint  # Changed from npm test to npm run lint for proper linting
+
+      # Run tests
+      - name: Run tests
+        run: npm test
+
+      # Build the project
+      - name: Build project
+        run: npm run build
