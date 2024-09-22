@@ -53,12 +53,6 @@ on:
         run: npm install
 
 
-      # Lint the code
-
-       - name: Lint code
-
-         run:  npm test
-
 
       # Run tests
 
